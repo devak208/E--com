@@ -17,7 +17,8 @@ root.render(
         <Route path='/' element={<Home/>} />
         <Route path='/search' element={<Home/>} />
         <Route path='/product/:id'element={<Productctdetails/>}/>
-        <Route path='/product/cart/:id'element={<Cartpage/>}/>
+        <Route path='/product/cart'element={<Cartpage/>}/>
+
       </Routes>
     </BrowserRouter>
 
