@@ -5,7 +5,7 @@ import Product from "../components/products";
 
 export default function Cartpage(){
     
-    const [order,setorder] =useState(null);
+/*     const [order,setorder] =useState(null);
     useEffect(() =>{
         const requestData = {userId: 1,  
         };
@@ -18,14 +18,24 @@ export default function Cartpage(){
         })
         .then(response =>response.json())
         .then(response =>setorder(response.product))
-    },[])
+    },[]) */
     return <>
         <Header/>
-                    <section>
-                        <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-16 justify-items-center my-10 mx-20  ">{
-                            order.map(detail =><Product details ={order}/>)} 
-                        </div>
-                    </section>
+        <div className="r border border-slate-300 items-center p-3 w-[250px] ">
+        <img width="200px"
+            src={"/images/products/1.jpg"}></img>
+           {/* <div>
+                <h5>
+                    <h1 to={"/product/"+product._id} className='text-orange-600'>{product.name}</h1>
+                </h5>
+            </div>
+            <div>
+                <p>${product.price}</p>
+                <div>{product.ratings}</div>
+                <button ></button>
+                <Link className="bg-orange-600 text-white p-1" >Add Cart</Link>
+            </div>    */} 
+        </div>
         <Footer/>
     </>
 }

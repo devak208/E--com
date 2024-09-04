@@ -3,7 +3,7 @@ import Search from "./search";
 
 export default function Header(order){
     return<>
-    <nav className="bg-slate-900">
+    <nav className="bg-slate-900 ">
             <div >
                 <Link to={'/'}>
                     <img width ="150px" src="/images/logo.png" alt=""/>
@@ -13,7 +13,7 @@ export default function Header(order){
             <div>
                 <Search/>
                 <div>
-                    <Link id="cart" className="" to={"/product/Cart/"}>Cart</Link>
+                    <Link id="cart" className="" to={"/product/Cart"}>Cart</Link>
                     <span className="">2</span>
                 </div>
 

@@ -24,11 +24,18 @@ export default function Productctproduct(){
             </div>
             <div>
                 <p>${product.price}</p>
+                <div>
+                    <span className="text-green-600 px-3 text-2xl">+</span>
+                    <span className="border border-slate-600 p-1">1</span>
+                    <span className="text-red-600 px-3 text-4xl">-</span>
+                </div>
                 <div>{product.ratings}</div>
                 <button ></button>
                 <Link className="bg-orange-600 text-white p-1" >Add Cart</Link>
+                <p>{product.description}</p>
+                <p><b>status:</b> {product.stock>0 ? "In stock":"out of stock"} </p>
             </div>     
-    </div>
+        </div>
 
      
         <Footer/>
