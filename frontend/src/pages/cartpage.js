@@ -20,7 +20,7 @@ export default function Cartpage(){
         .then(response =>setorder(response.product))
     },[]) */
     return <>
-        <Header/>
+
         <div className="r border border-slate-300 items-center p-3 w-[250px] ">
         <img width="200px"
             src={"/images/products/1.jpg"}></img>
