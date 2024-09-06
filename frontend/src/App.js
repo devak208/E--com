@@ -17,7 +17,7 @@ function App() {
         <Route path='/' element={<Home />} />
         <Route path='/search' element={<Home />} />
         <Route path='/product/:id' element={<Productctdetails cartitems ={cartitems} setcartitems ={setcartitems}/>} />
-        <Route path='/product/cart' element={<Cartpage />} />
+        <Route path='/product/Cart' element={<Cartpage cartitems ={cartitems} setcartitems ={setcartitems}/>} />
 
       </Routes>
     </BrowserRouter>

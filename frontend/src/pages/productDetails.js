@@ -8,9 +8,18 @@ export default function Productctproduct({ cartitems, setcartitems }) {
     const { id } = useParams();
     const [qty, setqty] = useState(1);
     const [toster, settoster] = useState(false);
-    var i = 1;
-
-
+    const [toast2,settoster2] =useState(false);
+   
+    function increaseQty(){
+        if(qty < product.stock){
+             setqty(qty+1) 
+        }
+    }
+    function decreaseQty(){
+        if(qty > 1){
+             setqty(qty-1)
+        } 
+    }
     function addtocart() {
         const itemexist = cartitems.find((items) => items.product._id == product._id);
         if (!itemexist) {
@@ -19,6 +28,12 @@ export default function Productctproduct({ cartitems, setcartitems }) {
             settoster(true);
             setTimeout(() => {
                 settoster(false);
+            }, 3000);
+        }
+        else{
+            settoster2(true);
+            setTimeout(() => {
+                settoster2(false);
             }, 3000);
         }
     }
@@ -31,9 +46,14 @@ export default function Productctproduct({ cartitems, setcartitems }) {
     }, [])
     return product && <>
 
-        {toster && (<div id="toast" className="fixed bottom-4 left-1/2 transform -translate-x-1/2 bg-gray-800 text-white py-2 px-4 rounded shadow-lg">
+        {toster && (<div id="toast" className="fixed top-4 left-1/2 transform -translate-x-1/2 bg-gray-800 text-white py-2 px-4 rounded shadow-lg">
             added to cart
         </div>)}
+        {
+            toast2 && (<div id="toast" className="fixed top-4 left-1/2 transform -translate-x-1/2 bg-red-800 text-white py-2 px-4 rounded shadow-lg">
+                already added
+            </div>) 
+        }
 
 
         <div className="r border border-slate-300 items-center p-3 w-[250px] ">
@@ -45,16 +65,16 @@ export default function Productctproduct({ cartitems, setcartitems }) {
                 </h5>
             </div>
             <div>
-                <p>${product.price}</p>
+                <p>${(product.price)*qty}</p>
                 <div>
-                    <button className="text-green-600 px-3 text-2xl " onClick={() => { i++ }}>+</button>
-                    <input type="text" className="border border-slate-600 p-1"></input>
-                    <button className="text-red-600 px-3 text-4xl" onClick={() => { i++ }}>-</button>
+                    <button className="text-green-600 px-3 text-2xl " onClick={increaseQty}>+</button>
+                    <input type="text" value={qty} className="border border-slate-600 p-1"></input>
+                    <button className="text-red-600 px-3 text-4xl" onClick={decreaseQty }>-</button>
 
                 </div>
                 <div>{product.ratings}</div>
-                <button ></button>
-                <button className="bg-orange-600 text-white p-1" onClick={addtocart} >Add Cart</button>
+                <button className={`p-1 ${product.stock ==0 ? 'bg-orange-400 cursor-not-allowed':'bg-orange-600 text-white'}`} onClick={addtocart} disabled={product.stock == 0 }>Add Cart</button>
+
                 <p>{product.description}</p>
                 <p><b>status:</b> {product.stock > 0 ? "In stock" : "out of stock"} </p>
             </div>
